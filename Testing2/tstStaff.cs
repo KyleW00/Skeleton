@@ -28,5 +28,31 @@ namespace Testing2
             //test to see if the two values are the same
             Assert.AreEqual(AStaff.Staff_Online, TestData);
         }
+
+        [TestMethod]
+        public void StaffDateAdded()
+        {
+            //create a instance of the class
+            clsStaff AStaff = new clsStaff();
+            //create some test data
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the staff
+            AStaff.Staff_Started = TestData;
+            //test to see if the two values are the same
+            Assert.AreEqual(AStaff.Staff_Started, TestData);
+        }
+
+        [TestMethod]
+        public void StaffSalary()
+        {
+            //create a instance of the class
+            clsStaff AStaff = new clsStaff();
+            //create some test data
+            Double TestData = 1.24;
+            //assign the data to the staff
+            AStaff.Staff_Salary = TestData;
+            //test to see if the two values are the same
+            Assert.AreEqual(AStaff.Staff_Salary, TestData);
+        }
     }
 }
