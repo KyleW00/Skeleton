@@ -17,7 +17,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void OnlineStaffOK()
+        public void OnlineStaff()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -30,7 +30,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffDateAddedOK()
+        public void StaffDateAdded()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -43,7 +43,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffSalaryOK()
+        public void StaffSalary()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -56,7 +56,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void  StaffIdentificationOK()
+        public void  StaffIdentification()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -69,7 +69,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffNameOK()
+        public void StaffName()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -82,7 +82,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffRoleOK()
+        public void StaffRole()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
