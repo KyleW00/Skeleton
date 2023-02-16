@@ -17,7 +17,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void OnlineStaff()
+        public void OnlineStaffOK()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -30,7 +30,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffDateAdded()
+        public void StaffDateAddedOK()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -43,7 +43,7 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void StaffSalary()
+        public void StaffSalaryOK()
         {
             //create a instance of the class
             clsStaff AStaff = new clsStaff();
@@ -53,6 +53,45 @@ namespace Testing2
             AStaff.Staff_Salary = TestData;
             //test to see if the two values are the same
             Assert.AreEqual(AStaff.Staff_Salary, TestData);
+        }
+
+        [TestMethod]
+        public void  StaffIdentificationOK()
+        {
+            //create a instance of the class
+            clsStaff AStaff = new clsStaff();
+            //create some test data
+            Int32 TestData = 1;
+            //assign the data to the staff
+            AStaff.Staff_Id = TestData;
+            //test to see if the two values are the same
+            Assert.AreEqual(AStaff.Staff_Id, TestData);
+        }
+
+        [TestMethod]
+        public void StaffNameOK()
+        {
+            //create a instance of the class
+            clsStaff AStaff = new clsStaff();
+            //create some test data
+            String TestData = "Persons Name";
+            //assign the data to the staff
+            AStaff.Staff_Name = TestData;
+            //test to see if the two values are the same
+            Assert.AreEqual(AStaff.Staff_Name, TestData);
+        }
+
+        [TestMethod]
+        public void StaffRoleOK()
+        {
+            //create a instance of the class
+            clsStaff AStaff = new clsStaff();
+            //create some test data
+            String TestData = "Manager";
+            //assign the data to the staff
+            AStaff.Staff_Role = TestData;
+            //test to see if the two values are the same
+            Assert.AreEqual(AStaff.Staff_Role, TestData);
         }
     }
 }
