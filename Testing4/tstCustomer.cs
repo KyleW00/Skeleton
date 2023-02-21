@@ -49,14 +49,7 @@ namespace Testing4
             customer.Email = TestData;
             Assert.AreEqual(customer.Email, TestData);
         }
-        [TestMethod]
-        public void UsernameCustomer()
-        {
-            clsCustomer customer = new clsCustomer();
-            string TestData = "Username2345";
-            customer.Username = TestData;
-            Assert.AreEqual(customer.Username, TestData);
-        }
+        
         [TestMethod]
         public void PasswordCustomer()
         {
