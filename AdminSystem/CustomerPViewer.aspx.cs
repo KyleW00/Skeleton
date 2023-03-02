@@ -36,6 +36,19 @@ public partial class _1Viewer : System.Web.UI.Page
          customerContactNumber = (clsCustomer)Session["ContactNumber"];
          //display the Password for this entry
          Response.Write(customerContactNumber.ContactNumber);
-       
+        
+
+        clsCustomer customerAddress = new clsCustomer();
+        //get the data from the session object
+        customerAddress = (clsCustomer)Session["Address"];
+        //display the password for this entry
+        Response.Write(customerAddress.Address);
+
+        clsCustomer customerActive = new clsCustomer();
+        //get the data from the session object
+        customerActive = (clsCustomer)Session["Active"];
+        //display the active status for this entry
+        Response.Write(customerActive.Address);
+
     }
 }
