@@ -38,7 +38,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         clsCustomer customerDateOfBirth = new clsCustomer();
         //capture the Password
-        customerDateOfBirth.DateAdded = txtDateOfBirth.Text;
+        customerDateOfBirth.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
         //store the address in the session object
         Session["DateOfBirth"] = customerDateOfBirth;
         //navigate to the viewer page
