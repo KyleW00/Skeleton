@@ -20,53 +20,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsAddress
-       clsCustomer customerEmail = new clsCustomer();
-       //capture the email
-       customerEmail.Email = txtEmail.Text;
-       //store the  email address in the session object
-       Session["Email"] = customerEmail;
-       //navigate to the viewer page
-       Response.Redirect("CustomerPViewer.aspx");
+        clsCustomer AnCustomer = new clsCustomer();
 
-        clsCustomer customerPassword = new clsCustomer();
+        //capture customer email
+        AnCustomer.Email = txtEmail.Text;
+
         //capture the Password
-        customerPassword.Password = txtPassword.Text;
-        //store the Password in the session object
-        Session["Password"] = customerPassword;
-        //navigate to the viewer page
-        Response.Redirect("CustomerPViewer.aspx");
+        AnCustomer.Password = txtPassword.Text;
 
-           clsCustomer customerDateOfBirth = new clsCustomer();
-           //capture DateOfBirth
-           customerDateOfBirth.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
-           //store the DateOfBirth in the session object
-           Session["DateOfBirth"] = customerDateOfBirth;
-           //navigate to the viewer page
-           Response.Redirect("CustomerPViewer.aspx");
+        //capture DateOfBirth
+        AnCustomer.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
 
-        clsCustomer customerContactNumber = new clsCustomer();
         //capture the ContactNumber
-        customerContactNumber.ContactNumber = txtContactNumber.Text;
-        //store the ContactNumber in the session object
-        Session["ContactNumber"] = customerContactNumber;
-        //navigate to the viewer page
-        Response.Redirect("CustomerPViewer.aspx");
+        AnCustomer.ContactNumber = txtContactNumber.Text;
 
-        clsCustomer customerAddress = new clsCustomer();
-           //capture the customerAddress
-           customerAddress.Address = txtAddress.Text;
-           //store the address in the session object
-           Session["Address"] = customerAddress;
-           //navigate to the viewer page
-           Response.Redirect("CustomerPViewer.aspx");
+        //capture the customerAddress
+        AnCustomer.Address = txtAddress.Text;
 
-        clsCustomer customerActive = new clsCustomer();
         //capture the customer activity status
-        customerActive.Active = chkActive.Checked;
-        //store the activity status in the session object
-        Session["Active"] = customerActive;
+        AnCustomer.Active = Convert.ToBoolean(chkActive.Checked);
+
+        //store the Ancustomer to the session object
+        Session["AnCustomer"] = AnCustomer;
         //navigate to the viewer page
         Response.Redirect("CustomerPViewer.aspx");
-
     }
 }
