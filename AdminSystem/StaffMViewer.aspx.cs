@@ -16,5 +16,10 @@ public partial class _1Viewer : System.Web.UI.Page
         AStaff = (clsStaff)Session["AStaff"];
         //displays a inputted data
         Response.Write(AStaff.Staff_Name);
+        Response.Write(AStaff.Staff_Id);
+        Response.Write(AStaff.Staff_Role);
+        Response.Write(AStaff.Staff_Started);
+        Response.Write(AStaff.Staff_Salary);
+        Response.Write(AStaff.Staff_Online);
     }
 }

@@ -19,9 +19,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaff AStaff = new clsStaff();
         //capture staff name
         AStaff.Staff_Name = txtStaff_Name.Text;
+        AStaff.Staff_Id = Convert.ToInt32(txtStaff_Id.Text);
+        AStaff.Staff_Role = txtStaff_Role.Text;
+        AStaff.Staff_Started = Convert.ToDateTime(txtStaff_Started.Text);
+        AStaff.Staff_Salary = Convert.ToDouble(txtStaff_Salary.Text);
+        AStaff.Staff_Online = Convert.ToBoolean(txtStaff_Salary.Text);
         //Store the staff in the session object
         Session["AStaff"] = AStaff;
         //navigate to viewer page
         Response.Redirect("StaffMViewer.aspx");
+    }
+
+    protected void txtStaff_Id_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
