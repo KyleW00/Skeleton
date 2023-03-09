@@ -23,7 +23,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AStaff.Staff_Role = txtStaff_Role.Text;
         AStaff.Staff_Started = Convert.ToDateTime(txtStaff_Started.Text);
         AStaff.Staff_Salary = Convert.ToDouble(txtStaff_Salary.Text);
-        AStaff.Staff_Online = Convert.ToBoolean(txtStaff_Salary.Text);
+        AStaff.Staff_Online = Convert.ToBoolean(chkStaff_Online.Text);
         //Store the staff in the session object
         Session["AStaff"] = AStaff;
         //navigate to viewer page
