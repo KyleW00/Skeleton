@@ -16,6 +16,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //create a new instance of clsAddress
         AnCustomer = (clsCustomer)Session["AnCustomer"];
 
+        Response.Write(AnCustomer.CustomerID);
         Response.Write(AnCustomer.Email);
         Response.Write(AnCustomer.Password);
         Response.Write(AnCustomer.DateAdded);
