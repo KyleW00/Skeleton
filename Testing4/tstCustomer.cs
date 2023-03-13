@@ -38,8 +38,8 @@ namespace Testing4
         {
             clsCustomer customer = new clsCustomer();
             string TestData = "Wilberforce rd";
-            customer.Email = TestData;
-            Assert.AreEqual(customer.Email, TestData);
+            customer.Address = TestData;
+            Assert.AreEqual(customer.Address, TestData);
         }
         [TestMethod]
         public void EmailCustomer()
