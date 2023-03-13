@@ -47,8 +47,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Response.Redirect("CustomerPViewer.aspx");
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
+        clsCustomer AnCustomer = new clsCustomer();
+        Int32 customerID;
+        Boolean Found = false;
+        //get the primary key entered by the user
+        customerID = Convert.ToInt32(txtCustomerID.Text);
+        //find the record
+        Found = AnCustomer.Find(customerID);
+        //if founf
+        if(Found == true)
+        {
+            //display
+            txtCustomerID.Text = AnCustomer.CustomerID.ToString();
+            txtEmail.Text = AnCustomer.Email;
+            txtPassword.Text = AnCustomer.Password;
+            txtAddress.Text = AnCustomer.Address;
+            txtContactNumber.Text = AnCustomer.ContactNumber;
+            txtDateOfBirth.Text = AnCustomer.DateAdded.ToString();
+            chkActive.Checked = AnCustomer.Active;
 
+        }
     }
 }
