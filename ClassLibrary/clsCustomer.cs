@@ -105,11 +105,11 @@ namespace ClassLibrary
         public bool Find(int customerID)
         {
             //create an instance of the data connection
-            clsDataConnection DB = clsDataConnection();
+            clsDataConnection DB = new clsDataConnection();
             //Adding parameter for the address no to search for
             DB.AddParameter("@customerID", customerID);
             //execute the stored procedure
-            DB.execute("sproc_tblCustomer_FilterByCustomerID");
+            DB.Execute("sproc_tblCustomer_FilterByCustomerID");
             //if one record is found
             if(DB.Count == 1)
             {

@@ -39,7 +39,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.Address = txtAddress.Text;
 
         //capture the customer activity status
-        AnCustomer.Active = Convert.ToBoolean(chkActive.Checked);
+       // AnCustomer.Active = Convert.ToBoolean(chkActive.Checked);
 
         //store the Ancustomer to the session object
         Session["AnCustomer"] = AnCustomer;
