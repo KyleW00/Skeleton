@@ -5,32 +5,92 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 136px;
+        }
+    </style>
 </head>
-<body style="height: 213px">
+<body style="height: 25px">
     <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="StockId" runat="server" style="z-index: 1; left: 10px; top: 15px; position: absolute" Text="Stock ID"></asp:Label>
-            <br />
-        </div>
-        <p>
-            <asp:Label ID="ProductName" runat="server" style="z-index: 1; left: 10px; top: 53px; position: absolute" Text="Product Name"></asp:Label>
-            <asp:TextBox ID="TxtProductName" runat="server" style="z-index: 1; left: 103px; top: 51px; position: absolute"></asp:TextBox>
-        </p>
-        <p>
-            <asp:TextBox ID="TxtStockId" runat="server" style="z-index: 1; left: 72px; top: 14px; position: absolute"></asp:TextBox>
-            <asp:Label ID="ProductCost" runat="server" style="z-index: 1; left: 10px; top: 91px; position: absolute" Text="Product Cost"></asp:Label>
-            <asp:TextBox ID="TxtProductCost" runat="server" style="z-index: 1; left: 95px; top: 91px; position: absolute"></asp:TextBox>
-        </p>
-        <asp:Label ID="StockQuantity" runat="server" style="z-index: 1; left: 10px; top: 129px; position: absolute" Text="Quantity"></asp:Label>
-        <asp:TextBox ID="TxtQuantity" runat="server" style="z-index: 1; left: 62px; top: 128px; position: absolute"></asp:TextBox>
-        <asp:Label ID="InStock" runat="server" style="z-index: 1; left: 12px; top: 163px; position: absolute" Text="In Stock"></asp:Label>
-        <asp:TextBox ID="TxtInStock" runat="server" style="z-index: 1; left: 71px; top: 163px; position: absolute"></asp:TextBox>
-        <asp:Label ID="DateAdded" runat="server" style="z-index: 1; left: 17px; top: 196px; position: absolute" Text="Date Added"></asp:Label>
-        <asp:TextBox ID="TxtDateAdded" runat="server" style="z-index: 1; left: 95px; position: absolute; top: 194px"></asp:TextBox>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="tblStockId" runat="server" Text="Stock ID"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtStockId" runat="server"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="tblProductName" runat="server" Text="Product Name"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="tblQuantity" runat="server" Text="Quantity"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="tblProductCost" runat="server" Text="Product Cost"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtProductCost" runat="server"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="tblDateAdded" runat="server" Text="Date Added"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:CheckBox ID="chkInStock" runat="server" Text="In Stock" />
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="lblError" runat="server"></asp:Label>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" Text="OK" />
+                </td>
+                <td>
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     </form>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
 </body>
 </html>
