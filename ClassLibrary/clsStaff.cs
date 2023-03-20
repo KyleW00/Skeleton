@@ -99,15 +99,43 @@ namespace ClassLibrary
         
         public bool Find(int Staff_Id)
         {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the Staff_Id to search for
+            DB.AddParameter("@Staff_Id", Staff_Id);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaff_Id");
+            //if one record is found (there should be either one or zero)
+            if(DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStaff_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_Id"]);
+                mStaff_Name = Convert.ToString(DB.DataTable.Rows[0]["Staff_Name"]);
+                mStaff_Role = Convert.ToString(DB.DataTable.Rows[0]["Staff_Role"]);
+                mStaff_Started = Convert.ToDateTime(DB.DataTable.Rows[0]["Staff_Started"]);
+                mStaff_Online = Convert.ToBoolean(DB.DataTable.Rows[0]["Staff_Online"]);
+                mStaff_Salary = Convert.ToDouble(DB.DataTable.Rows[0]["Staff_Salary"]);
+                //return everything worked ok
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+
+
+
             //set the private data members to the test data
-            mStaff_Id = 21;
-            mStaff_Started = Convert.ToDateTime("16/9/2015");
-            mStaff_Name = "Dave";
-            mStaff_Role = "Manager";
-            mStaff_Salary = 2.21;
-            mStaff_Online = false;
+            //mStaff_Id = 21;
+            //mStaff_Started = Convert.ToDateTime("16/9/2015");
+            //mStaff_Name = "Dave";
+            //mStaff_Role = "Manager";
+           // mStaff_Salary = 2.21;
+           // mStaff_Online = false;
             //always return true
-            return true;
+            //return true;
         }
     }
 }
