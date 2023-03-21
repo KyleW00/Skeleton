@@ -34,4 +34,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //create a instance of the staff class
+        clsStaff AStaff = new clsStaff();
+        //variable to store the primary key
+        Int32 Staff_Id;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        Staff_Id = Convert.ToInt32(txtStaff_Id.Text);
+        //find the record
+        Found = AStaff.Find(Staff_Id);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtStaff_Name.Text = AStaff.Staff_Name;
+            txtStaff_Role.Text = AStaff.Staff_Role;
+            txtStaff_Started.Text = AStaff.Staff_Started.ToString();
+            txtStaff_Salary.Text = AStaff.Staff_Salary.ToString();
+            chkStaff_Online.Checked = AStaff.Staff_Online;
+        }
+    }
 }
