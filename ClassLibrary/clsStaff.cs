@@ -99,15 +99,111 @@ namespace ClassLibrary
         
         public bool Find(int Staff_Id)
         {
-            //set the private data members to the test data
-            mStaff_Id = 21;
-            mStaff_Started = Convert.ToDateTime("16/9/2015");
-            mStaff_Name = "Dave";
-            mStaff_Role = "Manager";
-            mStaff_Salary = 2.21;
-            mStaff_Online = false;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the Staff_Id to search for
+            DB.AddParameter("@Staff_Id", Staff_Id);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaff_Id");
+            //if one record is found (there should be either one or zero)
+            if(DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStaff_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_Id"]);
+                mStaff_Name = Convert.ToString(DB.DataTable.Rows[0]["Staff_Name"]);
+                mStaff_Role = Convert.ToString(DB.DataTable.Rows[0]["Staff_Role"]);
+                mStaff_Started = Convert.ToDateTime(DB.DataTable.Rows[0]["Staff_Started"]);
+                mStaff_Online = Convert.ToBoolean(DB.DataTable.Rows[0]["Staff_Online"]);
+                mStaff_Salary = Convert.ToDouble(DB.DataTable.Rows[0]["Staff_Salary"]);
+                //return everything worked ok
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+        }
+
+        public string Valid(string staff_Name, string staff_Role, string staff_Started, string staff_Salary)
+        {
+            //create string variable to store an error
+            String Error = "";
+            DateTime DateTemp;
+            Double DoubTemp;
+            // if the Staff_Name is blank
+            if (staff_Name.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Staff_Name may not be blank : ";
+            }
+            // if the Staff_Name is more than 20 characters
+            if (staff_Name.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Staff_Name may not more the 20 characters : ";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(staff_Started);
+                // if the Staff_Started is more than 10 years ago
+                if (DateTemp < DateTime.Now.Date.AddYears(-10))
+                {
+                    Error = Error + "The Staff_Started may not be more than 10 years in the past : ";
+                }
+                // if the staff started is in the future
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Staff_Started may not be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
+            // if the Staff_Role is blank
+            if (staff_Role.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Staff_Role may not be blank : ";
+            }
+            // if the Staff_Role is more than 30 characters
+            if (staff_Role.Length > 30)
+            {
+                //record the error
+                Error = Error + "The Staff_Role may not more the 30 characters : ";
+            }
+
+            try
+            {
+                DoubTemp = Convert.ToDouble(staff_Salary);
+                // if the Staff_Salary is negative
+                if (DoubTemp < 0)
+                {
+                    //record the error
+                    Error = Error + "The Staff_Salary cannot be negative : ";
+                }
+                if (DoubTemp > 200000)
+                {
+                    //record the error
+                    Error = Error + "The Staff_Salary cannot be more than 200000";
+                }
+            }
+            catch
+            {
+                //record the Error
+                Error = Error + "The Salary is not a valid type : ";
+            }
+ 
+
+
+            //return any error messages
+            return Error;
         }
     }
 }
