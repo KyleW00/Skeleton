@@ -124,18 +124,86 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
+        }
+
+        public string Valid(string staff_Name, string staff_Role, string staff_Started, string staff_Salary)
+        {
+            //create string variable to store an error
+            String Error = "";
+            DateTime DateTemp;
+            Double DoubTemp;
+            // if the Staff_Name is blank
+            if (staff_Name.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Staff_Name may not be blank : ";
+            }
+            // if the Staff_Name is more than 20 characters
+            if (staff_Name.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Staff_Name may not more the 20 characters : ";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(staff_Started);
+                // if the Staff_Started is more than 10 years ago
+                if (DateTemp < DateTime.Now.Date.AddYears(-10))
+                {
+                    Error = Error + "The Staff_Started may not be more than 10 years in the past : ";
+                }
+                // if the staff started is in the future
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Staff_Started may not be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
 
 
+            // if the Staff_Role is blank
+            if (staff_Role.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Staff_Role may not be blank : ";
+            }
+            // if the Staff_Role is more than 30 characters
+            if (staff_Role.Length > 30)
+            {
+                //record the error
+                Error = Error + "The Staff_Role may not more the 30 characters : ";
+            }
 
-            //set the private data members to the test data
-            //mStaff_Id = 21;
-            //mStaff_Started = Convert.ToDateTime("16/9/2015");
-            //mStaff_Name = "Dave";
-            //mStaff_Role = "Manager";
-           // mStaff_Salary = 2.21;
-           // mStaff_Online = false;
-            //always return true
-            //return true;
+            try
+            {
+                DoubTemp = Convert.ToDouble(staff_Salary);
+                // if the Staff_Salary is negative
+                if (DoubTemp < 0)
+                {
+                    //record the error
+                    Error = Error + "The Staff_Salary cannot be negative : ";
+                }
+                if (DoubTemp > 200000)
+                {
+                    //record the error
+                    Error = Error + "The Staff_Salary cannot be more than 200000";
+                }
+            }
+            catch
+            {
+                //record the Error
+                Error = Error + "The Salary is not a valid type : ";
+            }
+ 
+
+
+            //return any error messages
+            return Error;
         }
     }
 }
