@@ -16,12 +16,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
     
 
 
-    protected void btnOK_Click1(object sender, EventArgs e)
+    
+
+    protected void Button1_Click(object sender, EventArgs e)
     {
         //create an instance of clsStock
         clsStock AStock = new clsStock();
         //capture the StockId
-        AStock.StockId = txtStockId.Text;
+        AStock.StockId = Convert.ToInt32(txtStockId.Text);
         //store the StockId in the session object
         Session["Astock"] = AStock;
         //Navigate to the users page
