@@ -128,5 +128,21 @@ namespace ClassLibrary
                 return false;
             }           
         }
+
+        public string Valid(string emailCustomer, string passwordCustomer,string dateOfBirthCustomer, string addressCustomer, string contactNumberCustomer)
+        {
+            String Error = "";
+            if(emailCustomer.Length == 0)
+            {
+                Error = Error + "CustommerID may not be blank: ";
+            }
+
+            if (emailCustomer.Length > 50)
+            {
+                Error = Error + "CustommerID must be less than 50 characters: ";
+            }
+
+            return Error;
+        }
     }
 }
