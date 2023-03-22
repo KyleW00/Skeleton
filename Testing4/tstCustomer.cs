@@ -37,7 +37,7 @@ namespace Testing4
         public void AddressCustomer()
         {
             clsCustomer customer = new clsCustomer();
-            string TestData = "Wilberforce rd";
+            string TestData = "22 London Road";
             customer.Address = TestData;
             Assert.AreEqual(customer.Address, TestData);
         }
@@ -45,7 +45,7 @@ namespace Testing4
         public void EmailCustomer()
         {
             clsCustomer customer = new clsCustomer();
-            string TestData = "Example@gmail.com";
+            string TestData = "marcus@gmail.com";
             customer.Email = TestData;
             Assert.AreEqual(customer.Email, TestData);
         }
@@ -54,7 +54,7 @@ namespace Testing4
         public void PasswordCustomer()
         {
             clsCustomer customer = new clsCustomer();
-            string TestData = "example1234!";
+            string TestData = "marcus2001";
             customer.Password = TestData;
             Assert.AreEqual(customer.Password, TestData);
         }
@@ -62,7 +62,7 @@ namespace Testing4
         public void ContactNumberCustomer()
         {
             clsCustomer customer = new clsCustomer();
-            String TestData = "97458844845";
+            String TestData = "07659955421";
             customer.ContactNumber = TestData;
             Assert.AreEqual(customer.ContactNumber, TestData);
         }
@@ -83,7 +83,7 @@ namespace Testing4
             //Bollean variable to store the results of the validation
             Boolean Found = false;
             //creating some test data to use with the method
-            Int32 customerID = 21;
+            Int32 customerID = 1;
             Found = customer.Find(customerID);
             //test to see if the result is true
             Assert.IsTrue(Found);
@@ -97,11 +97,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerID = 21;
+            Int32 customerID = 1;
             //invoking the method
             Found = customer.Find(customerID);
             //checking the customerID
-            if (customer.CustomerID != 21)
+            if (customer.CustomerID != 1)
             {
                 OK = false;
             }
@@ -117,11 +117,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerID = 21;
+            Int32 customerID = 1;
             //invoking the method
             Found = customer.Find(customerID);
             //checking the customerID
-            if (customer.DateAdded != Convert.ToDateTime("16/09/2015"))
+            if (customer.DateAdded != Convert.ToDateTime("01/01/2001"))
             {
                 OK = false;
             }
@@ -137,11 +137,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerID = 21;
+            Int32 customerID = 1;
             //invoking the method
             Found = customer.Find(customerID);
             //checking the customerID
-            if (customer.Email != "example@gmail.com")
+            if (customer.Email != "marcus@gmail.com")
             {
                 OK = false;
             }
@@ -158,11 +158,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerPassword = 21;
+            Int32 customerPassword = 1;
             //invoking the method
             Found = customer.Find(customerPassword);
             //checking the customerID
-            if (customer.Password != "example1234!")
+            if (customer.Password != "marcus2001")
             {
                 OK = false;
             }
@@ -179,7 +179,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerAddress = 21;
+            Int32 customerAddress = 1;
             //invoking the method
             Found = customer.Find(customerAddress);
             //checking the customerID
@@ -200,11 +200,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerContactNumber = 21;
+            Int32 customerContactNumber = 1;
             //invoking the method
             Found = customer.Find(customerContactNumber);
             //checking the customerID
-            if (customer.ContactNumber != "07547799246")
+            if (customer.ContactNumber != "07659955421")
             {
                 OK = false;
             }
@@ -220,7 +220,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creating some test data to use with the method
-            Int32 customerContactNumber = 21;
+            Int32 customerContactNumber = 1;
             //invoking the method
             Found = customer.Find(customerContactNumber);
             //checking the customerID
