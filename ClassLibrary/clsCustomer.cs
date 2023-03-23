@@ -175,7 +175,25 @@ namespace ClassLibrary
                 Error = Error + "The address may not be blank: ";
             }
 
-            
+            if (contactNumberCustomer.Length == 0)
+            {
+                Error = Error + "The Password may not be blank: ";
+            }
+
+            if (contactNumberCustomer.Length > 50)
+            {
+                Error = Error + "The Password must be less than 50 characters: ";
+            }
+
+            if (passwordCustomer.Length == 0)
+            {
+                Error = Error + "The Password may not be blank: ";
+            }
+
+            if (passwordCustomer.Length > 50)
+            {
+                Error = Error + "The Password must be less than 50 characters: ";
+            }
 
             return Error;
         }
