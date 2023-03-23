@@ -132,7 +132,9 @@ namespace ClassLibrary
         public string Valid(string emailCustomer, string passwordCustomer,string dateOfBirthCustomer, string addressCustomer, string contactNumberCustomer)
         {
             String Error = "";
-            if(emailCustomer.Length == 0)
+            DateTime DateTemp;
+
+            if (emailCustomer.Length == 0)
             {
                 Error = Error + "CustommerID may not be blank: ";
             }
@@ -141,6 +143,39 @@ namespace ClassLibrary
             {
                 Error = Error + "CustommerID must be less than 50 characters: ";
             }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateOfBirthCustomer);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
+
+            }
+
+            catch
+            {
+
+                Error = Error + "the dat was not a valid date: ";
+            }
+
+            if (addressCustomer.Length == 0)
+            {
+                Error = Error + "The address may not be blank: ";
+            }
+
+            if (addressCustomer.Length > 50)
+            {
+                Error = Error + "The address may not be blank: ";
+            }
+
+            
 
             return Error;
         }
