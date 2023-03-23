@@ -136,12 +136,12 @@ namespace ClassLibrary
 
             if (emailCustomer.Length == 0)
             {
-                Error = Error + "CustommerID may not be blank: ";
+                Error = Error + " Email  may not be blank: ";
             }
 
             if (emailCustomer.Length > 50)
             {
-                Error = Error + "CustommerID must be less than 50 characters: ";
+                Error = Error + "Email must be less than 50 characters: ";
             }
 
             try
@@ -162,7 +162,7 @@ namespace ClassLibrary
             catch
             {
 
-                Error = Error + "the dat was not a valid date: ";
+                Error = Error + "the date was not a valid date: ";
             }
 
             if (addressCustomer.Length == 0)
@@ -172,17 +172,17 @@ namespace ClassLibrary
 
             if (addressCustomer.Length > 50)
             {
-                Error = Error + "The address may not be blank: ";
+                Error = Error + "The address must be less than 50 characters: ";
             }
 
             if (contactNumberCustomer.Length == 0)
             {
-                Error = Error + "The Password may not be blank: ";
+                Error = Error + "The Contact Number may not be blank: ";
             }
 
             if (contactNumberCustomer.Length > 50)
             {
-                Error = Error + "The Password must be less than 50 characters: ";
+                Error = Error + "The Contact Number must be less than 50 characters: ";
             }
 
             if (passwordCustomer.Length == 0)

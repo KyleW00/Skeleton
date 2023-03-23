@@ -21,30 +21,45 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer AnCustomer = new clsCustomer();
 
         //capture customer ID
-        AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        //AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
 
         //capture customer email
-        AnCustomer.Email = txtEmail.Text;
+        string Email = txtEmail.Text;
 
         //capture the Password
-        AnCustomer.Password = txtPassword.Text;
+        string Password = txtPassword.Text;
 
         //capture DateOfBirth
-        AnCustomer.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
+        string DateOfBirth = txtDateOfBirth.Text;
 
         //capture the ContactNumber
-        AnCustomer.ContactNumber = txtContactNumber.Text;
+        string ContactNumber = txtContactNumber.Text;
 
         //capture the customerAddress
-        AnCustomer.Address = txtAddress.Text;
+        string Address = txtAddress.Text;
 
-        //capture the customer activity status
-       // AnCustomer.Active = Convert.ToBoolean(chkActive.Checked);
+        string Error = "";
 
-        //store the Ancustomer to the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the viewer page
-        Response.Redirect("CustomerPViewer.aspx");
+        Error = AnCustomer.Valid(Email, Password, DateOfBirth, Address, ContactNumber);
+        if(Error == "")
+        {
+            AnCustomer.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
+
+            AnCustomer.Email = Email;
+            AnCustomer.Password = Password;
+            AnCustomer.Address = Address;
+            AnCustomer.ContactNumber = ContactNumber;
+            //store the Ancustomer to the session object
+            Session["AnCustomer"] = AnCustomer;
+            //navigate to the viewer page
+            Response.Redirect("CustomerPViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+       
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
