@@ -128,5 +128,74 @@ namespace ClassLibrary
                 return false;
             }           
         }
+
+        public string Valid(string emailCustomer, string passwordCustomer,string dateOfBirthCustomer, string addressCustomer, string contactNumberCustomer)
+        {
+            String Error = "";
+            DateTime DateTemp;
+
+            if (emailCustomer.Length == 0)
+            {
+                Error = Error + " Email  may not be blank: ";
+            }
+
+            if (emailCustomer.Length > 50)
+            {
+                Error = Error + "Email must be less than 50 characters: ";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateOfBirthCustomer);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
+
+            }
+
+            catch
+            {
+
+                Error = Error + "the date was not a valid date: ";
+            }
+
+            if (addressCustomer.Length == 0)
+            {
+                Error = Error + "The address may not be blank: ";
+            }
+
+            if (addressCustomer.Length > 50)
+            {
+                Error = Error + "The address must be less than 50 characters: ";
+            }
+
+            if (contactNumberCustomer.Length == 0)
+            {
+                Error = Error + "The Contact Number may not be blank: ";
+            }
+
+            if (contactNumberCustomer.Length > 50)
+            {
+                Error = Error + "The Contact Number must be less than 50 characters: ";
+            }
+
+            if (passwordCustomer.Length == 0)
+            {
+                Error = Error + "The Password may not be blank: ";
+            }
+
+            if (passwordCustomer.Length > 50)
+            {
+                Error = Error + "The Password must be less than 50 characters: ";
+            }
+
+            return Error;
+        }
     }
 }
