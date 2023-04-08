@@ -10,5 +10,6 @@ namespace ClassLibrary
         public string ProductName { get; set; }
         public int ProductQuantity { get; set; }
         public decimal ProductCost { get; set; }
+        public int Quantity { get; set; }
     }
 }

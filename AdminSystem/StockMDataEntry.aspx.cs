@@ -13,20 +13,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
-    
 
 
-    
+
+
 
     protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnOK_Click(object sender, EventArgs e)
     {
         //create an instance of clsStock
         clsStock AStock = new clsStock();
         //capture the StockId
         AStock.StockId = Convert.ToInt32(txtStockId.Text);
+        AStock.ProductName = txtProductName.Text;
+        AStock.Quantity = Convert.ToInt32(txtQuantity.Text);
+        AStock.ProductCost = Convert.ToDecimal(txtProductCost.Text);
+        AStock.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+        AStock.Active = chkInStock.Checked;
         //store the StockId in the session object
         Session["Astock"] = AStock;
-        //Navigate to the users page
+        //navigate to the viewer page
         Response.Redirect("StockMViewer.aspx");
     }
+    
 }
