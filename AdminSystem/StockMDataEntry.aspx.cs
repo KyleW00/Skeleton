@@ -29,9 +29,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStock AStock = new clsStock();
         //capture the StockId
         AStock.StockId = Convert.ToInt32(txtStockId.Text);
-        AStock.ProductName = txtProductName.Text;
-        AStock.Quantity = Convert.ToInt32(txtQuantity.Text);
-        AStock.ProductCost = Convert.ToDecimal(txtProductCost.Text);
+        AStock.StockName = txtStockName.Text;
+        AStock.StockQuantity = Convert.ToInt32(txtStockQuantity.Text);
+        AStock.StockCost = Convert.ToDecimal(txtStockCost.Text);
         AStock.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
         AStock.Active = chkInStock.Checked;
         //store the StockId in the session object

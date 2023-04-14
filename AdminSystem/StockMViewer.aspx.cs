@@ -16,9 +16,9 @@ public partial class _1Viewer : System.Web.UI.Page
         AStock = (clsStock)Session["AStock"];
         //display the house number for this entry
         Response.Write(AStock.StockId);
-        Response.Write(AStock.ProductName);
-        Response.Write(AStock.Quantity);
-        Response.Write(AStock.ProductCost);
+        Response.Write(AStock.StockName);
+        Response.Write(AStock.StockQuantity);
+        Response.Write(AStock.StockCost);
         Response.Write(AStock.DateAdded);
         Response.Write(AStock.Active);
     }

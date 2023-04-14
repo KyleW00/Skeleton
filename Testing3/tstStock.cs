@@ -17,7 +17,7 @@ namespace Testing3
             Assert.IsNotNull(AStock);
         }
         [TestMethod]
-        public void StockId()
+        public void StockIdProperty()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -29,7 +29,7 @@ namespace Testing3
             Assert.AreEqual(AStock.StockId, TestData);
         }
         [TestMethod]
-        public void ActiveInStock()
+        public void ActiveProperty()
         {
             //create instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -41,7 +41,7 @@ namespace Testing3
             Assert.AreEqual(AStock.Active, TestData);
         }
         [TestMethod]
-        public void DateAddedStock()
+        public void DateAddedProperty()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -53,40 +53,40 @@ namespace Testing3
             Assert.AreEqual(AStock.DateAdded, TestData);
         }
         [TestMethod]
-        public void ProductNameStock()
+        public void StockNameProperty()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data to assign to the Stock
             String TestData = "Hplaptop";
             //assign the data to the property
-            AStock.ProductName = TestData;
+            AStock.StockName = TestData;
             //test to see the two values are the same
-            Assert.AreEqual(AStock.ProductName, TestData);
+            Assert.AreEqual(AStock.StockName, TestData);
         }
         [TestMethod]
-        public void ProductQuantityStock()
+        public void StockQuantityProperty()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data to assign to the Stock
             Int32 TestData = 1;
             //assign the data to the property
-            AStock.ProductQuantity = TestData;
+            AStock.StockQuantity = TestData;
             //test to see the two values are the same
-            Assert.AreEqual(AStock.ProductQuantity, TestData);
+            Assert.AreEqual(AStock.StockQuantity, TestData);
         }
         [TestMethod]
-        public void ProductCostStock()
+        public void StockCostProperty()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data to assign to the Stock
             decimal TestData = 1;
             //assign the data to the property
-            AStock.ProductCost = TestData;
+            AStock.StockCost = TestData;
             //test to see the two values are the same
-            Assert.AreEqual(AStock.ProductCost, TestData);
+            Assert.AreEqual(AStock.StockCost, TestData);
         }
         [TestMethod]
         public void FindMethodOK()
@@ -144,7 +144,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestProductNameFound()
+        public void TestStockNameFound()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -157,7 +157,7 @@ namespace Testing3
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.ProductName != "Test Product Name")
+            if (AStock.StockName != "Test Stock Name")
             {
                 OK = false;
             }
@@ -165,7 +165,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestProductCostFound()
+        public void TestStockCostFound()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -178,7 +178,7 @@ namespace Testing3
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.ProductCost != Convert.ToDecimal("10.01"))
+            if (AStock.StockCost != Convert.ToDecimal("10.01"))
             {
                 OK = false;
             }
@@ -186,7 +186,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestQuantityFound()
+        public void TestStockQuantityFound()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -199,7 +199,7 @@ namespace Testing3
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.Quantity != 10)
+            if (AStock.StockQuantity != 10)
             {
                 OK = false;
             }
