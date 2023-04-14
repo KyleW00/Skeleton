@@ -51,64 +51,50 @@ namespace ClassLibrary
                 mDateAdded = value;
             }
         }
-        //private data member for ProductName property
-        private string mProductName;
-        public string ProductName
+        //private data member for StockName property
+        private string mStockName;
+        public string StockName
         {
             get
             {
                 //return the private data
-                return mProductName;
+                return mStockName;
             }
             set
             {
                 //set the private data
-                mProductName = value;
+                mStockName = value;
             }
         }
-        //private data member for ProductQuantity property
-        private int mProductQuantity;
-        public int ProductQuantity
+        
+        //private data member for StockCost property
+        private decimal mStockCost;
+        public decimal StockCost
         {
             get
             {
                 //return the private data
-                return mProductQuantity;
+                return mStockCost;
             }
             set
             {
                 //set the private data
-                mProductQuantity = value;
+                mStockCost = value;
             }
         }
-        //private data member for ProductCost property
-        private decimal mProductCost;
-        public decimal ProductCost
+        //private data member for StockQuantity property
+        private int mStockQuantity;
+        public int StockQuantity
         {
             get
             {
                 //return the private data
-                return mProductCost;
+                return mStockQuantity;
             }
             set
             {
                 //set the private data
-                mProductCost = value;
-            }
-        }
-        //private data member for Quantity property
-        private int mQuantity;
-        public int Quantity
-        {
-            get
-            {
-                //return the private data
-                return mQuantity;
-            }
-            set
-            {
-                //set the private data
-                mQuantity = value;
+                mStockQuantity = value;
             }
         }
 
@@ -117,9 +103,9 @@ namespace ClassLibrary
             //set the private data member to the test data value
             mStockId = 12;
             mDateAdded = Convert.ToDateTime("16/09/2015");
-            mProductName = "Test Product Name";
-            mQuantity = 10;
-            mProductCost = Convert.ToDecimal("10.01");
+            mStockName = "Test Stock Name";
+            mStockQuantity = 10;
+            mStockCost = Convert.ToDecimal("10.01");
             mActive = true;
             //always return true
             return true;

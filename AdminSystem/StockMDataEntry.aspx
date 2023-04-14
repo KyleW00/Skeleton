@@ -102,12 +102,12 @@
     <form id="form1" runat="server">
         <asp:Label ID="lblStockId" runat="server" CssClass="auto-style1" Text="Stock Id" width="119px"></asp:Label>
         <asp:TextBox ID="txtStockId" runat="server" CssClass="auto-style2" height="22px" width="128px"></asp:TextBox>
-        <asp:Label ID="lblProductName" runat="server" CssClass="auto-style3" Text="Product Name" width="119px"></asp:Label>
-        <asp:TextBox ID="txtProductName" runat="server" CssClass="auto-style4" height="22px" width="128px"></asp:TextBox>
-        <asp:Label ID="lblQuantity" runat="server" CssClass="auto-style5" Text="Quantity" width="119px"></asp:Label>
-        <asp:TextBox ID="txtQuantity" runat="server" CssClass="auto-style6" height="22px" width="128px"></asp:TextBox>
-        <asp:Label ID="lblProductCost" runat="server" CssClass="auto-style7" Text="ProductCost" width="119px"></asp:Label>
-        <asp:TextBox ID="txtProductCost" runat="server" CssClass="auto-style8" height="22px" width="128px"></asp:TextBox>
+        <asp:Label ID="lblStockName" runat="server" CssClass="auto-style3" Text="Stock Name" width="119px"></asp:Label>
+        <asp:TextBox ID="txtStockName" runat="server" CssClass="auto-style4" height="22px" width="128px"></asp:TextBox>
+        <asp:Label ID="lblStockQuantity" runat="server" CssClass="auto-style5" Text="Stock Quantity" width="119px"></asp:Label>
+        <asp:TextBox ID="txtStockQuantity" runat="server" CssClass="auto-style6" height="22px" width="128px"></asp:TextBox>
+        <asp:Label ID="lblStockCost" runat="server" CssClass="auto-style7" Text="Stock Cost" width="119px"></asp:Label>
+        <asp:TextBox ID="txtStockCost" runat="server" CssClass="auto-style8" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="lblDateAdded" runat="server" CssClass="auto-style9" Text="Date Added" width="119px"></asp:Label>
         <asp:TextBox ID="txtDateAdded" runat="server" CssClass="auto-style10" height="22px" width="128px"></asp:TextBox>
         <asp:CheckBox ID="chkInStock" runat="server" CssClass="auto-style11" Text="InStock" width="119px" />
