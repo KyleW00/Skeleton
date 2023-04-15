@@ -17,17 +17,48 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create new instance of the clsStaff
         clsStaff AStaff = new clsStaff();
-        //capture staff name
-        AStaff.Staff_Name = txtStaff_Name.Text;
-        AStaff.Staff_Id = Convert.ToInt32(txtStaff_Id.Text);
-        AStaff.Staff_Role = txtStaff_Role.Text;
-        AStaff.Staff_Started = Convert.ToDateTime(txtStaff_Started.Text);
-        AStaff.Staff_Salary = Convert.ToDouble(txtStaff_Salary.Text);
-        AStaff.Staff_Online = Convert.ToBoolean(chkStaff_Online.Text);
-        //Store the staff in the session object
-        Session["AStaff"] = AStaff;
-        //navigate to viewer page
-        Response.Redirect("StaffMViewer.aspx");
+        //capture staff Id
+        string Staff_Id = txtStaff_Id.Text;
+        //capture Staff name
+        string Staff_Name = txtStaff_Name.Text;
+        //capture Staff Role
+        string Staff_Role = txtStaff_Role.Text;
+        //capture Staff Started
+        string Staff_Started = txtStaff_Started.Text;
+        //capture Staff Salary
+        string Staff_Salary = txtStaff_Salary.Text;
+        //capture Staff_Online
+        string Error = "";
+        //validate the dat
+        Error = AStaff.Valid(Staff_Name, Staff_Role, Staff_Started, Staff_Salary);
+        if (Error == "")
+        {
+            //capture staff id
+            AStaff.Staff_Id = Convert.ToInt32(Staff_Id);
+            //capture staff name
+            AStaff.Staff_Name = Staff_Name;
+            //capture staff role
+            AStaff.Staff_Role = Staff_Role;
+            //capture staff started
+            AStaff.Staff_Started = Convert.ToDateTime(Staff_Started);
+            //capture staff salary
+            AStaff.Staff_Salary = Convert.ToDouble(Staff_Salary);
+            //capture staff online
+            AStaff.Staff_Online = chkStaff_Online.Checked;
+            //create new instance of the staff collection
+            clsStaffCollection StaffList = new clsStaffCollection();
+            //set the ThisStaff property
+            StaffList.ThisStaff = AStaff;
+            //add the new record
+            StaffList.Add();
+            //redirect back to the listpage
+            Response.Redirect("StaffMList.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void txtStaff_Id_TextChanged(object sender, EventArgs e)
