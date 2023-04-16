@@ -100,7 +100,6 @@ namespace Testing2
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.Staff_Id = 27;
             TestItem.Staff_Name = "James";
             TestItem.Staff_Role = "Manager";
             TestItem.Staff_Started = DateTime.Now.Date;
@@ -115,6 +114,43 @@ namespace Testing2
             //find the record
             AllStaff.ThisStaff.Find(PrimaryKey);
             //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOk()
+        {
+            //create an instance of the class
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Staff_Name = "Alex";
+            TestItem.Staff_Role = "Front";
+            TestItem.Staff_Started = DateTime.Now.Date;
+            TestItem.Staff_Online = true;
+            TestItem.Staff_Salary = 200.1;
+            //set ThisStaff to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add to the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.Staff_Id = PrimaryKey;
+            //modify test data
+            TestItem.Staff_Name = "Alex";
+            TestItem.Staff_Role = "Manager";
+            TestItem.Staff_Started = DateTime.Now.Date;
+            TestItem.Staff_Online = false;
+            TestItem.Staff_Salary = 200.25;
+            //set the record based on the new test data
+            AllStaff.ThisStaff = TestItem;
+            //update the record
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see ThisStaff matches the test data
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
 

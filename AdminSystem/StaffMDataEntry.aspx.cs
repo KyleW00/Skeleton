@@ -8,9 +8,21 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 Staff_Id;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the Id to be processed
+        Staff_Id = Convert.ToInt32(Session["Staff_Id"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if(Staff_Id != -1)
+            {
+                //display the current data for the record
+                DisplayStaffs();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -47,12 +59,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.Staff_Online = chkStaff_Online.Checked;
             //create new instance of the staff collection
             clsStaffCollection StaffList = new clsStaffCollection();
-            //set the ThisStaff property
-            StaffList.ThisStaff = AStaff;
-            //add the new record
-            StaffList.Add();
+
+            //if this is a new record i.e Staff_Id = -1 then add the data
+            if(Staff_Id == -1)
+            {
+                //set the ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //add the new record
+                StaffList.Add();
+            }
+            else
+            {
+                //find the record to update
+                StaffList.ThisStaff.Find(Staff_Id);
+                //set ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //update the record
+                StaffList.Update();
+            }
             //redirect back to the listpage
             Response.Redirect("StaffMList.aspx");
+
+
         }
         else
         {

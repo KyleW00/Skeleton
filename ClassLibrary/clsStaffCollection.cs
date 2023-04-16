@@ -109,5 +109,20 @@ namespace ClassLibrary
             //execute the query returning the primary key
             return DB.Execute("sproc_tblStaff_Insert");
         }
+
+        public int Update()
+        {
+            //updates a exist record based on the values of mThisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Staff_Id", mThisStaff.Staff_Id);
+            DB.AddParameter("@Staff_Name", mThisStaff.Staff_Name);
+            DB.AddParameter("@Staff_Role", mThisStaff.Staff_Role);
+            DB.AddParameter("@Staff_Started", mThisStaff.Staff_Started);
+            DB.AddParameter("@Staff_Online", mThisStaff.Staff_Online);
+            DB.AddParameter("@Staff_Salary", mThisStaff.Staff_Salary);
+            //execute the stored procedure
+            return DB.Execute("sproc_tblStaff_Update");
+        }
     }
 }
