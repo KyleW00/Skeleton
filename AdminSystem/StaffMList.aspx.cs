@@ -30,7 +30,7 @@ public partial class _1_List : System.Web.UI.Page
             //bind the data tp the list
             lstStaffList.DataBind();
 
-        }
+    }
 
     protected void lstStaffList_SelectedIndexChanged(object sender, EventArgs e)
     {
