@@ -20,6 +20,6 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AStock.StockQuantity);
         Response.Write(AStock.StockCost);
         Response.Write(AStock.DateAdded);
-        Response.Write(AStock.Active);
+        Response.Write(AStock.InStock);
     }
 }

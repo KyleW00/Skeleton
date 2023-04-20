@@ -29,16 +29,16 @@ namespace Testing3
             Assert.AreEqual(AStock.StockId, TestData);
         }
         [TestMethod]
-        public void ActiveProperty()
+        public void InStockProperty()
         {
             //create instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data
             Boolean TestData = true;
             //assign the data to the stock
-            AStock.Active = TestData;
+            AStock.InStock = TestData;
             //test to see if the two values are the same
-            Assert.AreEqual(AStock.Active, TestData);
+            Assert.AreEqual(AStock.InStock, TestData);
         }
         [TestMethod]
         public void DateAddedProperty()
@@ -207,7 +207,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestActiveFound()
+        public void TestInStockFound()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -220,7 +220,7 @@ namespace Testing3
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.Active != true)
+            if (AStock.InStock != true)
             {
                 OK = false;
             }

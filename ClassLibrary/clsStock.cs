@@ -6,18 +6,18 @@ namespace ClassLibrary
     {
 
         //private data member for active
-        private Boolean mActive;
-        public bool Active 
+        private Boolean mInStock;
+        public bool InStock 
         {
             get 
             {
                 //return the private data
-                return mActive;
+                return mInStock;
             }
             set
             {
                 //set the private data
-                mActive = value;
+                mInStock = value;
             }
         }
         //private data memeber for the stockId property
@@ -109,12 +109,12 @@ namespace ClassLibrary
             //if one record is found (there should be either one or zero!)
             if (DB.Count == 1)
             {
-                //copy the data from the database to the private data members
+                 //copy the data from the database to the private data members
                 mStockId = Convert.ToInt32(DB.DataTable.Rows[0]["StockId"]);
                 mStockName = Convert.ToString(DB.DataTable.Rows[0]["StockName"]);
                 mStockQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["StockQuantity"]);
                 mStockCost = Convert.ToDecimal(DB.DataTable.Rows[0]["StockCost"]);
-                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
             }
             //if no record was found
