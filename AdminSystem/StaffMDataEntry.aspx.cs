@@ -117,4 +117,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkStaff_Online.Checked = AStaff.Staff_Online;
         }
     }
+
+    void DisplayStaffs()
+    {
+        //create an instance of the staff
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        //find the record to update
+        StaffBook.ThisStaff.Find(Staff_Id);
+        //display the data for this record
+        txtStaff_Id.Text = StaffBook.ThisStaff.Staff_Id.ToString();
+        txtStaff_Name.Text = StaffBook.ThisStaff.Staff_Name;
+        txtStaff_Role.Text = StaffBook.ThisStaff.Staff_Role;
+        txtStaff_Started.Text = StaffBook.ThisStaff.Staff_Started.ToString();
+        txtStaff_Salary.Text = StaffBook.ThisStaff.Staff_Salary.ToString();
+        chkStaff_Online.Checked = StaffBook.ThisStaff.Staff_Online;
+    }
 }
