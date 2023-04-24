@@ -116,6 +116,7 @@ namespace ClassLibrary
                 mStockCost = Convert.ToDecimal(DB.DataTable.Rows[0]["StockCost"]);
                 mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                return true;
             }
             //if no record was found
             else
