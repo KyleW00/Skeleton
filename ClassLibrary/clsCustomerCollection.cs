@@ -7,32 +7,56 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
+        List<clsCustomer> mCustomerList = new List<clsCustomer>();
+        clsCustomer mThisCustomer = new clsCustomer();
+        private clsCustomer clsCustomer;
         public clsCustomerCollection()
         {
-            clsCustomer TestItem = new clsCustomer();
+            /* clsCustomer TestItem = new clsCustomer();
 
+             TestItem.Active = true;
+             TestItem.Address = "First street";
+             TestItem.ContactNumber = "123456789";
+             TestItem.DateAdded = DateTime.Now.Date;
+             TestItem.Email = "example1@gmail.com";
+             TestItem.Password = "password1";
 
-            TestItem.Active = true;
-            TestItem.Address = "First street";
-            TestItem.ContactNumber = "123456789";
-            TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Email = "example1@gmail.com";
-            TestItem.Password = "password1";
+             mCustomerList.Add(TestItem);
 
-            mCustomerList.Add(TestItem);
-            TestItem = new clsCustomer();
+             TestItem = new clsCustomer();
+             TestItem.Active = true;
+             TestItem.Address = "second street";
+             TestItem.ContactNumber = "987654321";
+             TestItem.DateAdded = DateTime.Now.Date;
+             TestItem.Email = "example22@gmail.com";
+             TestItem.Password = "password22";
+             mCustomerList.Add(TestItem);*/
 
-            TestItem.Active = true;
-            TestItem.Address = "second street";
-            TestItem.ContactNumber = "987654321";
-            TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Email = "example2@gmail.com";
-            TestItem.Password = "password2";
-            mCustomerList.Add(TestItem);
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblAddress_SelectAll");
+            RecordCount = DB.Count;
+            while(Index < RecordCount)
+            {
+
+                clsCustomer AnCustomer = new clsCustomer();
+
+                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
+                AnCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
+                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
+                AnCustomer.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
+                AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+
+                mCustomerList.Add(AnCustomer);
+                Index++;
+            
+            }
         }
-        List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        private Int32 count;
-        private clsCustomer clsCustomer;
+        
 
         public List<clsCustomer> CustomerList {
             get
@@ -60,13 +84,28 @@ namespace ClassLibrary
         public clsCustomer ThisCustomer {
             get
             {
-                return clsCustomer;
+                return mThisCustomer;
             }
 
             set
             {
-                clsCustomer = value;
+                mThisCustomer = value;
             }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Customer_ID", mThisCustomer.CustomerID);
+            DB.AddParameter("@Email", mThisCustomer.Email);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+            DB.AddParameter("@DataOfBirth", mThisCustomer.DateAdded);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@ContactNumber", mThisCustomer.ContactNumber);
+            DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
+
+            return DB.Execute("sproc?tblAddress?Insert");
         }
     }
 }

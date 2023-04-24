@@ -44,15 +44,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if(Error == "")
         {
             AnCustomer.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
-
             AnCustomer.Email = Email;
             AnCustomer.Password = Password;
             AnCustomer.Address = Address;
             AnCustomer.ContactNumber = ContactNumber;
-            //store the Ancustomer to the session object
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the viewer page
-            Response.Redirect("CustomerPViewer.aspx");
+
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            CustomerList.ThisCustomer = AnCustomer;
+            CustomerList.Add();
+            Response.Redirect("CustomerPList.aspx");
         }
         else
         {
