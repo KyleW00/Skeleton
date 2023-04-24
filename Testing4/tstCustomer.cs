@@ -720,6 +720,7 @@ namespace Testing4
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
+
         [TestMethod]
         public void AddMethodOK()
         {
@@ -741,6 +742,38 @@ namespace Testing4
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+       /* [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.Active = true;
+            TestItem.Address = "some street";
+            TestItem.ContactNumber = "123456789";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Email = "example@gmail.com";
+            TestItem.Password = "123abc";
+
+            AllCustomers.ThisCustomer = TestItem;
+            PrimaryKey = AllCustomers.Add();
+            TestItem.CustomerID = PrimaryKey;
+
+            TestItem.Active = false;
+            TestItem.Address = "update street";
+            TestItem.ContactNumber = "121111111";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Email = "update@gmail.com";
+            TestItem.Password = "123444444";
+
+            AllCustomers.ThisCustomer = TestItem;
+            AllCustomers.Update();
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }*/
     }
 }
 

@@ -9,10 +9,12 @@ namespace ClassLibrary
     {
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
         clsCustomer mThisCustomer = new clsCustomer();
-        private clsCustomer clsCustomer;
+       
+        
+        
         public clsCustomerCollection()
         {
-            /* clsCustomer TestItem = new clsCustomer();
+             clsCustomer TestItem = new clsCustomer();
 
              TestItem.Active = true;
              TestItem.Address = "First street";
@@ -30,9 +32,9 @@ namespace ClassLibrary
              TestItem.DateAdded = DateTime.Now.Date;
              TestItem.Email = "example22@gmail.com";
              TestItem.Password = "password22";
-             mCustomerList.Add(TestItem);*/
+             mCustomerList.Add(TestItem);
 
-            Int32 Index = 0;
+          /* Int32 Index = 0;
             Int32 RecordCount = 0;
 
             clsDataConnection DB = new clsDataConnection();
@@ -54,11 +56,12 @@ namespace ClassLibrary
                 mCustomerList.Add(AnCustomer);
                 Index++;
             
-            }
+            }*/
         }
         
 
-        public List<clsCustomer> CustomerList {
+        public List<clsCustomer> CustomerList 
+        {
             get
             {
                 return mCustomerList;
@@ -95,17 +98,8 @@ namespace ClassLibrary
 
         public int Add()
         {
-            clsDataConnection DB = new clsDataConnection();
-
-            DB.AddParameter("@Customer_ID", mThisCustomer.CustomerID);
-            DB.AddParameter("@Email", mThisCustomer.Email);
-            DB.AddParameter("@Password", mThisCustomer.Password);
-            DB.AddParameter("@DataOfBirth", mThisCustomer.DateAdded);
-            DB.AddParameter("@Address", mThisCustomer.Address);
-            DB.AddParameter("@ContactNumber", mThisCustomer.ContactNumber);
-            DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
-
-            return DB.Execute("sproc?tblAddress?Insert");
+            mThisCustomer.CustomerID = 1;
+            return mThisCustomer.CustomerID;
         }
     }
 }
