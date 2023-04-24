@@ -17,11 +17,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsAddress
+      
         clsCustomer AnCustomer = new clsCustomer();
-
-        //capture customer ID
-        //AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
 
         //capture customer email
         string Email = txtEmail.Text;
