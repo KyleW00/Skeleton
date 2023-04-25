@@ -745,7 +745,7 @@ namespace Testing4
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
-       /* [TestMethod]
+        [TestMethod]
         public void UpdateMethodOK()
         {
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
@@ -776,7 +776,7 @@ namespace Testing4
             AllCustomers.ThisCustomer.Find(PrimaryKey);
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
-        }*/
+        }
     }
 }
 

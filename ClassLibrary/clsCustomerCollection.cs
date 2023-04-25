@@ -111,7 +111,7 @@ namespace ClassLibrary
              DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
 
              return DB.Execute("sproc_tblCustomer_Insert");
-           
+           //
         }
     }
 }
