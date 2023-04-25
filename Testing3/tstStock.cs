@@ -136,7 +136,7 @@ namespace Testing3
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.DateAdded != Convert.ToDateTime("16/09/2015"))
+            if (AStock.DateAdded != Convert.ToDateTime("10/01/2022"))
             {
                 OK = false;
             }
