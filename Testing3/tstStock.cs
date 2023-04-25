@@ -29,16 +29,16 @@ namespace Testing3
             Assert.AreEqual(AStock.StockId, TestData);
         }
         [TestMethod]
-        public void ActiveProperty()
+        public void InStockProperty()
         {
             //create instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data
             Boolean TestData = true;
             //assign the data to the stock
-            AStock.Active = TestData;
+            AStock.InStock = TestData;
             //test to see if the two values are the same
-            Assert.AreEqual(AStock.Active, TestData);
+            Assert.AreEqual(AStock.InStock, TestData);
         }
         [TestMethod]
         public void DateAddedProperty()
@@ -96,7 +96,7 @@ namespace Testing3
             //Boolean variable to store the resultsof the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             Found = AStock.Find(StockId);
             //test to see if the result is true
             Assert.IsTrue(Found);
@@ -111,11 +111,11 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the emthod
             Found = AStock.Find(StockId);
             //check the stock number
-            if (AStock.StockId != 12)
+            if (AStock.StockId != 1)
             {
                 OK = false;
             }
@@ -132,11 +132,11 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.DateAdded != Convert.ToDateTime("16/09/2015"))
+            if (AStock.DateAdded != Convert.ToDateTime("10/01/2022"))
             {
                 OK = false;
             }
@@ -153,11 +153,11 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.StockName != "Test Stock Name")
+            if (AStock.StockName != "Stock1")
             {
                 OK = false;
             }
@@ -174,7 +174,7 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
@@ -185,6 +185,7 @@ namespace Testing3
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
         [TestMethod]
         public void TestStockQuantityFound()
         {
@@ -195,11 +196,11 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.StockQuantity != 10)
+            if (AStock.StockQuantity != 100)
             {
                 OK = false;
             }
@@ -207,7 +208,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestActiveFound()
+        public void TestInStockFound()
         {
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
@@ -216,11 +217,11 @@ namespace Testing3
             //boolean variable to record if data is OK(assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StockId = 12;
+            Int32 StockId = 1;
             //invoke the method
             Found = AStock.Find(StockId);
             //check the property
-            if (AStock.Active != true)
+            if (AStock.InStock != true)
             {
                 OK = false;
             }

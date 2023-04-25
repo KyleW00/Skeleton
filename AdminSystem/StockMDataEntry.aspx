@@ -39,6 +39,8 @@
             top: 65px;
             left: 16px;
             z-index: 1;
+            height: 29px;
+            width: 114px;
         }
         .auto-style6 {
             position: absolute;
@@ -101,6 +103,7 @@
 <body style="height: 25px">
     <form id="form1" runat="server">
         <asp:Label ID="lblStockId" runat="server" CssClass="auto-style1" Text="Stock Id" width="119px"></asp:Label>
+        <asp:Button ID="btnFind" runat="server" Height="24px" OnClick="btnFind_Click" style="margin-left: 461px" Text="Find" Width="76px" />
         <asp:TextBox ID="txtStockId" runat="server" CssClass="auto-style2" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="lblStockName" runat="server" CssClass="auto-style3" Text="Stock Name" width="119px"></asp:Label>
         <asp:TextBox ID="txtStockName" runat="server" CssClass="auto-style4" height="22px" width="128px"></asp:TextBox>
@@ -115,7 +118,7 @@
         <asp:Button ID="btnOK" runat="server" CssClass="auto-style13" height="26px" Text="OK" width="67px" OnClick="btnOK_Click" />
         <asp:Button ID="btnCancel" runat="server" CssClass="auto-style14" height="26px" Text="Cancel" />
         <p>
-        </p>
+            &nbsp;</p>
     </form>
     </body>
 </html>
