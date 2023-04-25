@@ -729,6 +729,7 @@ namespace Testing4
             Int32 PrimaryKey = 0;
 
             TestItem.Active = true;
+            TestItem.CustomerID = 1;
             TestItem.Address = "some street";
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;

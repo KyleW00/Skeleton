@@ -98,8 +98,16 @@ namespace ClassLibrary
 
         public int Add()
         {
-            mThisCustomer.CustomerID = 1;
-            return mThisCustomer.CustomerID;
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Customer_ID", mThisCustomer.CustomerID);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+            DB.AddParameter("@DataOfBirth", mThisCustomer.DateAdded);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@ContactNumber", mThisCustomer.ContactNumber);
+            DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
+
+            DB.Execute("sproc_tblCustomer_Insert");
         }
     }
 }
