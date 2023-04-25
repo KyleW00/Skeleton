@@ -20,7 +20,7 @@
 &nbsp;<asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblDateOfBirth" runat="server" Text="Date Of Birth" width="105px"></asp:Label>
-&nbsp;<asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="txtDateOfBirth" runat="server" OnTextChanged="txtDateOfBirth_TextChanged"></asp:TextBox>
             <br />
             <asp:Label ID="lblAddress" runat="server" Text="Address" width="105px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>

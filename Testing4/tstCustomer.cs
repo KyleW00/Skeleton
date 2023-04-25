@@ -710,7 +710,9 @@ namespace Testing4
             clsCustomer TestItem = new clsCustomer();
 
             TestItem.Active = true;
+
             TestItem.Address = "some street";
+            TestItem.CustomerID = 1;
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "example@gmail.com";

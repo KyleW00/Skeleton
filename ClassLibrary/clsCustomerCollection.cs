@@ -14,10 +14,11 @@ namespace ClassLibrary
         
         public clsCustomerCollection()
         {
-             clsCustomer TestItem = new clsCustomer();
+             /*clsCustomer TestItem = new clsCustomer();
 
              TestItem.Active = true;
-             TestItem.Address = "First street";
+             TestItem.CustomerID = 1;
+            TestItem.Address = "First street";
              TestItem.ContactNumber = "123456789";
              TestItem.DateAdded = DateTime.Now.Date;
              TestItem.Email = "example1@gmail.com";
@@ -27,25 +28,26 @@ namespace ClassLibrary
 
              TestItem = new clsCustomer();
              TestItem.Active = true;
+             TestItem.CustomerID = 2;
              TestItem.Address = "second street";
              TestItem.ContactNumber = "987654321";
              TestItem.DateAdded = DateTime.Now.Date;
              TestItem.Email = "example22@gmail.com";
              TestItem.Password = "password22";
-             mCustomerList.Add(TestItem);
+             mCustomerList.Add(TestItem);*/
 
-          /* Int32 Index = 0;
+            Int32 Index = 0;
             Int32 RecordCount = 0;
 
             clsDataConnection DB = new clsDataConnection();
-            DB.Execute("sproc_tblAddress_SelectAll");
+            DB.Execute("sproc_tblCustomer_SelectAll");
             RecordCount = DB.Count;
             while(Index < RecordCount)
             {
 
                 clsCustomer AnCustomer = new clsCustomer();
 
-                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["OnlineStatus"]);
                 AnCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
                 AnCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
@@ -56,7 +58,7 @@ namespace ClassLibrary
                 mCustomerList.Add(AnCustomer);
                 Index++;
             
-            }*/
+            }
         }
         
 
@@ -98,16 +100,18 @@ namespace ClassLibrary
 
         public int Add()
         {
-            clsDataConnection DB = new clsDataConnection();
+             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@Customer_ID", mThisCustomer.CustomerID);
-            DB.AddParameter("@Password", mThisCustomer.Password);
-            DB.AddParameter("@DataOfBirth", mThisCustomer.DateAdded);
-            DB.AddParameter("@Address", mThisCustomer.Address);
-            DB.AddParameter("@ContactNumber", mThisCustomer.ContactNumber);
-            DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
+            // DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+             DB.AddParameter("@Email", mThisCustomer.Email);
+             DB.AddParameter("@Password", mThisCustomer.Password);
+             DB.AddParameter("@DateOfBirth", mThisCustomer.DateAdded);
+             DB.AddParameter("@Address", mThisCustomer.Address);
+             DB.AddParameter("@ContactNumber", mThisCustomer.ContactNumber);
+             DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
 
-            DB.Execute("sproc_tblCustomer_Insert");
+             return DB.Execute("sproc_tblCustomer_Insert");
+           
         }
     }
 }

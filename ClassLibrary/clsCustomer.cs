@@ -107,17 +107,17 @@ namespace ClassLibrary
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //Adding parameter for the address no to search for
-            DB.AddParameter("@Customer_ID", customerID);
+            DB.AddParameter("@CustomerID", customerID);
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_FilterByCustomerID");
             //if one record is found
             if(DB.Count == 1)
             {
                 //copy the data from the database to the private data members
-                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["Customer_ID"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mEmailAdded = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DataOfBirth"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["OnlineStatus"]);

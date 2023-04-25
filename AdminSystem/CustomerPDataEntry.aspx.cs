@@ -73,7 +73,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if(Found == true)
         {
             //display
-            txtCustomerID.Text = AnCustomer.CustomerID.ToString();
+            //txtCustomerID.Text = AnCustomer.CustomerID.ToString();
             txtEmail.Text = AnCustomer.Email;
             txtPassword.Text = AnCustomer.Password;
             txtAddress.Text = AnCustomer.Address;
@@ -82,5 +82,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkActive.Checked = AnCustomer.Active;
 
         }
+    }
+
+    protected void txtDateOfBirth_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
