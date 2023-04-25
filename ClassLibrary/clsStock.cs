@@ -115,7 +115,7 @@ namespace ClassLibrary
                 mStockQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["StockQuantity"]);
                 mStockCost = Convert.ToDecimal(DB.DataTable.Rows[0]["StockCost"]);
                 mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["Date_added"]);
                 return true;
             }
             //if no record was found
