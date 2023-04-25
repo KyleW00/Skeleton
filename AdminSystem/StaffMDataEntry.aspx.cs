@@ -30,7 +30,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create new instance of the clsStaff
         clsStaff AStaff = new clsStaff();
         //capture staff Id
-        string Staff_Id = txtStaff_Id.Text;
+        //string Staff_Id = txtStaff_Id.Text;
         //capture Staff name
         string Staff_Name = txtStaff_Name.Text;
         //capture Staff Role

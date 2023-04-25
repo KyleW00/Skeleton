@@ -115,7 +115,7 @@ namespace ClassLibrary
             //updates a exist record based on the values of mThisStaff
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
-            //DB.AddParameter("@Staff_Id", mThisStaff.Staff_Id);
+            DB.AddParameter("@Staff_Id", mThisStaff.Staff_Id);
             DB.AddParameter("@Staff_Name", mThisStaff.Staff_Name);
             DB.AddParameter("@Staff_Role", mThisStaff.Staff_Role);
             DB.AddParameter("@Staff_Started", mThisStaff.Staff_Started);
