@@ -126,5 +126,19 @@ namespace ClassLibrary
             }
             
         }
+
+        public string Valid(string stockName, string stockQuantity, string stockCost, string dateAdded)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the StockName is blank
+            if (stockName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Stock Name may not be blank : ";
+            }
+            //return any error messages
+            return Error;
+        }
     }
 }
