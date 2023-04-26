@@ -261,6 +261,350 @@ namespace Testing3
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-    }
+        [TestMethod]
+        public void StockNameMin()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "a"; //this should be ok
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameMinPlusOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "aa"; //this should be ok
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameMaxLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameMax()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameMid()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameMaxPlusOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                ""; //this should fail
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockNameExtremeMax()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String StockName = "";
+            StockName = StockName.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a varable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            String DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a varable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            String DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a varable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            String DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a varable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            String DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a varable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to a string variable
+            String DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //set the DateAdded to a non date value
+            String DateAdded = "this is not a date!";
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void StockCostExtremeMin()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = -100000;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
 
+        [TestMethod]
+        public void StockCostMinLessOne()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = -1;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostMin()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 0;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostMinPlusOne()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 1;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostMaxLessOne()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 99999;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostMax()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 100000;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostMaxPlusOne()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 100001;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostExtremeMax()
+        {
+            //create instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Decimal TestValue = 90000000;
+            String StockCost = TestValue.ToString();
+            // invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StockCostInvalidData()
+        {
+            //creates instance of the class
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            String StockCost = "this is not a salary";
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            // test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+    }
 }

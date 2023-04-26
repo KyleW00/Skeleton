@@ -131,12 +131,63 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
+            DateTime DateTemp;
+            Decimal DecimalTemp;
             //if the StockName is blank
             if (stockName.Length == 0)
             {
                 //record the error
                 Error = Error + "The Stock Name may not be blank : ";
             }
+            if (stockName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The stock name must be less than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            try
+            {
+                DecimalTemp = Convert.ToDecimal(stockCost);
+                // if the stock cost is negative
+                if (DecimalTemp < 0)
+                {
+                    //record the error
+                    Error = Error + "The stock cost cannot be negative : ";
+                }
+                if (DecimalTemp > 100000)
+                {
+                    //record the error
+                    Error = Error + "The stock cost cannot be more than 100000";
+                }
+            }
+            catch
+            {
+                //record the Error
+                Error = Error + "The stock cost is not a valid type : ";
+            }
+
             //return any error messages
             return Error;
         }
