@@ -147,10 +147,10 @@ namespace ClassLibrary
             try
             {
                 DateTemp = Convert.ToDateTime(dateOfBirthCustomer);
-                if (DateTemp < DateTime.Now.Date)
+                /*if (DateTemp < (DateTime.Now.Date))
                 {
                     Error = Error + "The date cannot be in the past: ";
-                }
+                }*/
 
                 if (DateTemp > DateTime.Now.Date)
                 {

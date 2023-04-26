@@ -20,21 +20,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
       
         clsCustomer AnCustomer = new clsCustomer();
 
-        //capture customer email
+        
         string Email = txtEmail.Text;
-
-        //capture the Password
         string Password = txtPassword.Text;
-
-        //capture DateOfBirth
         string DateOfBirth = txtDateOfBirth.Text;
-
-        //capture the ContactNumber
         string ContactNumber = txtContactNumber.Text;
-
-        //capture the customerAddress
-        string Address = txtAddress.Text;
-
+        string Address = txtAddress.Text; 
         string Error = "";
 
         Error = AnCustomer.Valid(Email, Password, DateOfBirth, Address, ContactNumber);
@@ -45,8 +36,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.Password = Password;
             AnCustomer.Address = Address;
             AnCustomer.ContactNumber = ContactNumber;
+            AnCustomer.Active = chkActive.Checked;
 
             clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            if(txtCustomerID == -1)
+            {
+
+            }
+
 
             CustomerList.ThisCustomer = AnCustomer;
             CustomerList.Add();
@@ -86,6 +84,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void txtDateOfBirth_TextChanged(object sender, EventArgs e)
     {
+
+    }
+    void DisplayCustomers()
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+
+        Customers.ThisCustomer.Find(CustomerID);
+
+        txtCustomerID.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtEmail.Text = Customers.ThisCustomer.Email;
+        txtPassword.Text = Customers.ThisCustomer.Password;
+        txtDateOfBirth.Text = Customers.ThisCustomer.DateAdded.ToString();
+        txtAddress.Text = Customers.ThisCustomer.Address;
+        chkActive.Checked = Customers.ThisCustomer.Active;
+
 
     }
 }
