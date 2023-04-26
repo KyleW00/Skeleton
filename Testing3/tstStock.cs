@@ -8,6 +8,13 @@ namespace Testing3
     [TestClass]
     public class tstStock
     {
+        //good test data
+        //create some test data to pass to the method
+        String StockName = "Stock21";
+        String StockQuantity = "2100";
+        String StockCost = "21.01";
+        String DateAdded = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOk()
         {
@@ -227,6 +234,18 @@ namespace Testing3
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            // create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AStock.Valid(StockName, StockQuantity, StockCost, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 
