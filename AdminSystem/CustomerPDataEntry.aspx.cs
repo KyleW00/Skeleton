@@ -37,6 +37,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.Address = Address;
             AnCustomer.ContactNumber = ContactNumber;
             AnCustomer.Active = chkActive.Checked;
+            AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
 
             clsCustomerCollection CustomerList = new clsCustomerCollection();
 
@@ -67,11 +68,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         customerID = Convert.ToInt32(txtCustomerID.Text);
         //find the record
         Found = AnCustomer.Find(customerID);
-        //if founf
+        //if found
         if(Found == true)
         {
-            //display
-            //txtCustomerID.Text = AnCustomer.CustomerID.ToString();
             txtEmail.Text = AnCustomer.Email;
             txtPassword.Text = AnCustomer.Password;
             txtAddress.Text = AnCustomer.Address;
