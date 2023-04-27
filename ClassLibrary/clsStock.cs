@@ -133,6 +133,7 @@ namespace ClassLibrary
             String Error = "";
             DateTime DateTemp;
             Decimal DecimalTemp;
+            int intTemp;
             //if the StockName is blank
             if (stockName.Length == 0)
             {
@@ -186,6 +187,27 @@ namespace ClassLibrary
             {
                 //record the Error
                 Error = Error + "The stock cost is not a valid type : ";
+            }
+
+            try
+            {
+                intTemp = Convert.ToInt32(stockQuantity);
+                // if the stock cost is negative
+                if (intTemp < 0)
+                {
+                    //record the error
+                    Error = Error + "The stock quantity cannot be negative : ";
+                }
+                if (intTemp > 1000)
+                {
+                    //record the error
+                    Error = Error + "The stock quantity cannot be more than 100000";
+                }
+            }
+            catch
+            {
+                //record the Error
+                Error = Error + "The stock quantity is not a valid type : ";
             }
 
             //return any error messages
