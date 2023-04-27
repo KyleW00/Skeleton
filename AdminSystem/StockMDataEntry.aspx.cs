@@ -27,17 +27,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create an instance of clsStock
         clsStock AStock = new clsStock();
-        //capture the StockId
-        AStock.StockId = Convert.ToInt32(txtStockId.Text);
-        AStock.StockName = txtStockName.Text;
-        AStock.StockQuantity = Convert.ToInt32(txtStockQuantity.Text);
-        AStock.StockCost = Convert.ToDecimal(txtStockCost.Text);
-        AStock.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-        AStock.InStock = chkInStock.Checked;
-        //store the StockId in the session object
-        Session["Astock"] = AStock;
-        //navigate to the viewer page
-        Response.Redirect("StockMViewer.aspx");
+        //capture the StockId, StockName, StockQuantity, StockCost, InStock, DateAdded
+        String StockId = txtStockId.Text;
+        String StockName = txtStockName.Text;
+        String StockQuantity = txtStockQuantity.Text;
+        String StockCost = txtStockCost.Text;
+        String DateAdded = txtDateAdded.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AStock.Valid(StockId, StockQuantity, StockCost, DateAdded);
+        if (Error =="")
+        {
+            //capture the StockId, StockName, StockQuantity, StockCost, InStock, DateAdded
+            AStock.StockId = Convert.ToInt32(txtStockId.Text);
+            AStock.StockName = txtStockName.Text;
+            AStock.StockQuantity = Convert.ToInt32(txtStockQuantity.Text);
+            AStock.StockCost = Convert.ToDecimal(txtStockCost.Text);
+            AStock.InStock = chkInStock.Checked;
+            AStock.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            //Store the Stock in the session object
+            Session["AStock"] = AStock;
+            //redirect to the viewer page
+            Response.Redirect("StockMViewer.aspx");
+        }
+        else
+        {
+            //dispaly the error message
+            lblError.Text = Error;
+        }
+        
+        
     }
 
 
