@@ -23,6 +23,7 @@ namespace Testing4
             clsCustomer TestItem = new clsCustomer();
 
             TestItem.Active = true;
+            TestItem.CustomerID = 1;
             TestItem.Address = "some street";
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
@@ -41,6 +42,7 @@ namespace Testing4
             clsCustomer TestCustomer = new clsCustomer();
 
             TestCustomer.Active = true;
+            TestCustomer.CustomerID = 1;
             TestCustomer.Address = "some street";
             TestCustomer.ContactNumber = "123456789";
             TestCustomer.DateAdded = DateTime.Now.Date;
@@ -59,7 +61,6 @@ namespace Testing4
             clsCustomer TestItem = new clsCustomer();
 
             TestItem.Active = true;
-
             TestItem.Address = "some street";
             TestItem.CustomerID = 1;
             TestItem.ContactNumber = "123456789";

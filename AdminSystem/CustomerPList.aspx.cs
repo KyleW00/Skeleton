@@ -9,16 +9,17 @@ using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
-    Int32 CustomerID;
+    //Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        //CustomerID = Convert.ToInt32(Session["CustomerID"]);
         if(IsPostBack == false)
         {
-            if (CustomerID != -1)
-            {
-                DisplayCustomers();
-            }   
+            /* if (CustomerID != -1)
+             {
+                 DisplayCustomers();
+             }  */
+            DisplayCustomers();
         }
     }
 

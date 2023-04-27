@@ -7,9 +7,17 @@ using System.Web.UI.WebControls;
 using ClassLibrary;
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            if (CustomerID != -1)
+            {
+                DisplayCustomers();
+            }
+        }
     }
     protected void btnCancel_Click(object sender, EventArgs e)
     {
@@ -31,24 +39,35 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnCustomer.Valid(Email, Password, DateOfBirth, Address, ContactNumber);
         if(Error == "")
         {
+           
             AnCustomer.DateAdded = Convert.ToDateTime(txtDateOfBirth.Text);
             AnCustomer.Email = Email;
             AnCustomer.Password = Password;
             AnCustomer.Address = Address;
             AnCustomer.ContactNumber = ContactNumber;
             AnCustomer.Active = chkActive.Checked;
-            AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            AnCustomer.CustomerID = CustomerID;
+            //Response.Redirect("CustomerPViewer.aspx");
+           
 
             clsCustomerCollection CustomerList = new clsCustomerCollection();
 
-            if(txtCustomerID == -1)
+            if(CustomerID == -1)
             {
-
+                CustomerList.ThisCustomer = AnCustomer;
+                CustomerList.Add();
+            }
+            else
+            {
+                CustomerList.ThisCustomer.Find(CustomerID);
+                CustomerList.ThisCustomer = AnCustomer;
+                CustomerList.Update();
             }
 
+            /* CustomerList.ThisCustomer = AnCustomer;
+             CustomerList.Add();
+             Response.Redirect("CustomerPList.aspx");*/
 
-            CustomerList.ThisCustomer = AnCustomer;
-            CustomerList.Add();
             Response.Redirect("CustomerPList.aspx");
         }
         else
@@ -94,6 +113,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtCustomerID.Text = Customers.ThisCustomer.CustomerID.ToString();
         txtEmail.Text = Customers.ThisCustomer.Email;
         txtPassword.Text = Customers.ThisCustomer.Password;
+        txtContactNumber.Text = Customers.ThisCustomer.ContactNumber;
         txtDateOfBirth.Text = Customers.ThisCustomer.DateAdded.ToString();
         txtAddress.Text = Customers.ThisCustomer.Address;
         chkActive.Checked = Customers.ThisCustomer.Active;

@@ -14,28 +14,6 @@ namespace ClassLibrary
         
         public clsCustomerCollection()
         {
-             /*clsCustomer TestItem = new clsCustomer();
-
-             TestItem.Active = true;
-             TestItem.CustomerID = 1;
-            TestItem.Address = "First street";
-             TestItem.ContactNumber = "123456789";
-             TestItem.DateAdded = DateTime.Now.Date;
-             TestItem.Email = "example1@gmail.com";
-             TestItem.Password = "password1";
-
-             mCustomerList.Add(TestItem);
-
-             TestItem = new clsCustomer();
-             TestItem.Active = true;
-             TestItem.CustomerID = 2;
-             TestItem.Address = "second street";
-             TestItem.ContactNumber = "987654321";
-             TestItem.DateAdded = DateTime.Now.Date;
-             TestItem.Email = "example22@gmail.com";
-             TestItem.Password = "password22";
-             mCustomerList.Add(TestItem);*/
-
             Int32 Index = 0;
             Int32 RecordCount = 0;
 
@@ -60,7 +38,6 @@ namespace ClassLibrary
             
             }
         }
-        
 
         public List<clsCustomer> CustomerList 
         {
