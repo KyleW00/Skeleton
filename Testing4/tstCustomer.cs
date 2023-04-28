@@ -14,12 +14,12 @@ namespace Testing4
         String Address = "some street";
         String ContactNumber = "9876553";
 
-        /*  [TestMethod]
+          [TestMethod]
           public void InstanceOK()
           {
               clsCustomer customer = new clsCustomer();
               Assert.IsNotNull(customer);
-          }*/
+          }
 
         [TestMethod]
         public void ActiveStatusProperty()
@@ -658,84 +658,6 @@ namespace Testing4
             Error = customer.Valid(Email, Password, DateOfBirth, Address, ContactNumber);
             Assert.AreNotEqual(Error, "");
         }
-
-        [TestMethod]
-        public void InstanceOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            Assert.IsNotNull(AllCustomers);
-        }
-
-        [TestMethod]
-        public void AddressListOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            List<clsCustomer> TestList = new List<clsCustomer>();
-            clsCustomer TestItem = new clsCustomer();
-
-            TestItem.Active = true;
-            TestItem.Address = "some street";
-            TestItem.ContactNumber = "123456789";
-            TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Email = "example@gmail.com";
-            TestItem.Password = "123abc";
-
-            TestList.Add(TestItem);
-            AllCustomers.CustomerList = TestList;
-            Assert.AreEqual(AllCustomers.CustomerList, TestList);
-        }
-        /*[TestMethod]
-        public void CountPropertyOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            Int32 SomeCount = 2;
-            AllCustomers.Count = SomeCount;
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }*/
-        [TestMethod]
-        public void ThisAddressCustomerOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            clsCustomer TestCustomer = new clsCustomer();
-
-            TestCustomer.Active = true;
-            TestCustomer.Address = "some street";
-            TestCustomer.ContactNumber = "123456789";
-            TestCustomer.DateAdded = DateTime.Now.Date;
-            TestCustomer.Email = "example@gmail.com";
-            TestCustomer.Password = "123abc";
-
-            AllCustomers.ThisCustomer = TestCustomer;
-            Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
-
-        }
-        [TestMethod]
-        public void ListAndCountOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            List<clsCustomer> TestList = new List<clsCustomer>();
-            clsCustomer TestItem = new clsCustomer();
-
-            TestItem.Active = true;
-            TestItem.Address = "some street";
-            TestItem.ContactNumber = "123456789";
-            TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Email = "example@gmail.com";
-            TestItem.Password = "123abc";
-
-            TestList.Add(TestItem);
-            AllCustomers.CustomerList = TestList;
-            Assert.AreEqual(AllCustomers.Count, TestList.Count);
-        }
-
-       /* [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            Assert.AreEqual(AllCustomers.Count, 2);
-        }
-       */
-       
     }
 }
 

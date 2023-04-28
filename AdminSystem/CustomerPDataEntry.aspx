@@ -9,23 +9,23 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblCustmerID" runat="server" Text="CustomerID" width="105px"></asp:Label>
+            <asp:Label ID="lblCustmerID" runat="server" Text="CustomerID" width="102px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
-            <asp:Label ID="lblEmail" runat="server" Text="E-mail" width="105px"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="E-mail" width="102px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lblPassword" runat="server" Text="Password" width="105px"></asp:Label>
+            <asp:Label ID="lblPassword" runat="server" Text="Password" width="102px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date Of Birth" width="105px"></asp:Label>
-&nbsp;<asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
+            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date Of Birth" width="102px"></asp:Label>
+&nbsp;<asp:TextBox ID="txtDateOfBirth" runat="server" OnTextChanged="txtDateOfBirth_TextChanged"></asp:TextBox>
             <br />
-            <asp:Label ID="lblAddress" runat="server" Text="Address" width="105px"></asp:Label>
+            <asp:Label ID="lblAddress" runat="server" Text="Address" width="102px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lblContactNumber" runat="server" Text="Concact Number"></asp:Label>
+            <asp:Label ID="lblContactNumber" runat="server" Text="Contact Number"></asp:Label>
 &nbsp;<asp:TextBox ID="txtContactNumber" runat="server"></asp:TextBox>
             <br />
             <br />
