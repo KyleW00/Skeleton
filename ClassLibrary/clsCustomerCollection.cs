@@ -14,29 +14,10 @@ namespace ClassLibrary
         
         public clsCustomerCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
-
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblCustomer_SelectAll");
-            RecordCount = DB.Count;
-            while(Index < RecordCount)
-            {
+            PopulateArray(DB);
 
-                clsCustomer AnCustomer = new clsCustomer();
-
-                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["OnlineStatus"]);
-                AnCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
-                AnCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
-                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
-                AnCustomer.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
-                AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
-
-                mCustomerList.Add(AnCustomer);
-                Index++;
-            
-            }
         }
 
         public List<clsCustomer> CustomerList 
@@ -79,7 +60,7 @@ namespace ClassLibrary
         {
              clsDataConnection DB = new clsDataConnection();
 
-            // DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            
              DB.AddParameter("@Email", mThisCustomer.Email);
              DB.AddParameter("@Password", mThisCustomer.Password);
              DB.AddParameter("@DateOfBirth", mThisCustomer.DateAdded);
@@ -88,7 +69,7 @@ namespace ClassLibrary
              DB.AddParameter("@OnlineStatus", mThisCustomer.Active);
 
              return DB.Execute("sproc_tblCustomer_Insert");
-           //
+       
         }
 
         public void Update()
@@ -112,6 +93,44 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+        public void ReportByAddress(string Address)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Address", Address);
+            DB.Execute("sproc_tblCustomer_FilterByAddress");
+            PopulateArray(DB);
+        }
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based in the data table in parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the cound of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mCustomerList = new List<clsCustomer>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                clsCustomer AnCustomer = new clsCustomer();
+               
+                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["OnlineStatus"]);
+                AnCustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
+                AnCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
+                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
+                AnCustomer.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
+                AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+
+
+                mCustomerList.Add(AnCustomer);
+                //point at the next record
+                Index++;
+            }
         }
     }
 }

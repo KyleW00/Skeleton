@@ -141,6 +141,7 @@ namespace Testing4
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "email@gmail.com";
             TestItem.ContactNumber = "333333";
+            TestItem.Password = "123444444";
 
             allCustomers.ThisCustomer = TestItem;
             PrimaryKey = allCustomers.Add();
@@ -152,6 +153,49 @@ namespace Testing4
             Boolean Found = allCustomers.ThisCustomer.Find(PrimaryKey);
             Assert.IsFalse(Found);
 
+        }
+        [TestMethod]
+        public void ReportByAddressMethodOK()
+        {
+            clsCustomerCollection allCustomer = new clsCustomerCollection();
+            clsCustomerCollection filteredCustomer = new clsCustomerCollection();
+
+            filteredCustomer.ReportByAddress("");
+            Assert.AreEqual(allCustomer.Count, filteredCustomer.Count);
+        }
+
+        [TestMethod]
+        public void ReportByAddressNoneFound()
+        {
+            clsCustomerCollection filteredCustomer = new clsCustomerCollection();
+            filteredCustomer.ReportByAddress("xxx xxx");
+            Assert.AreEqual(0, filteredCustomer.Count);
+        }
+
+        [TestMethod]
+        public void ReportByNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsCustomerCollection filteredAddresses = new clsCustomerCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a name that doesn't exist
+            filteredAddresses.ReportByAddress("London");
+            //check that the correct number of records are found
+            if (filteredAddresses.Count == 1)
+            {
+               
+                if (filteredAddresses.CustomerList[0].CustomerID != 1)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
         }
 
     }

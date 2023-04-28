@@ -139,9 +139,9 @@ namespace ClassLibrary
                 Error = Error + " Email  may not be blank: ";
             }
 
-            if (emailCustomer.Length > 30)
+            if (emailCustomer.Length > 50)
             {
-                Error = Error + "Email must be less than 30 characters: ";
+                Error = Error + "Email must be less than 50 characters: ";
             }
 
             try
@@ -152,7 +152,10 @@ namespace ClassLibrary
                 {
                     Error = Error + "The date cannot be in the future: ";
                 }
-
+                if (DateTemp < (DateTemp.AddYears(-200))) ;
+                {
+                    Error = Error + "Too old to be still alive: ";
+                }
             }
             catch
             {
@@ -165,9 +168,9 @@ namespace ClassLibrary
                 Error = Error + "The address may not be blank: ";
             }
 
-            if (addressCustomer.Length > 30)
+            if (addressCustomer.Length > 50)
             {
-                Error = Error + "The address must be less than 30 characters: ";
+                Error = Error + "The address must be less than 50 characters: ";
             }
 
             if (contactNumberCustomer.Length == 0)
@@ -175,9 +178,9 @@ namespace ClassLibrary
                 Error = Error + "The Contact Number may not be blank: ";
             }
 
-            if (contactNumberCustomer.Length > 30)
+            if (contactNumberCustomer.Length > 50)
             {
-                Error = Error + "The Contact Number must be less than 30 characters: ";
+                Error = Error + "The Contact Number must be less than 50 characters: ";
             }
 
             if (passwordCustomer.Length == 0)
@@ -185,9 +188,9 @@ namespace ClassLibrary
                 Error = Error + "The Password may not be blank: ";
             }
 
-            if (passwordCustomer.Length > 30)
+            if (passwordCustomer.Length > 50)
             {
-                Error = Error + "The Password must be less than 30 characters: ";
+                Error = Error + "The Password must be less than 50 characters: ";
             }
 
             return Error;

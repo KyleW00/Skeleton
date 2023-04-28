@@ -62,11 +62,41 @@ public partial class _1_List : System.Web.UI.Page
         {
             CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerID"] = CustomerID;
-            Response.Redirect("AddressBookConfirmDelete.aspx");
+            Response.Redirect("CustomerPConfirmDelete.aspx");
         }
         else
         {
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create instance of the staff collection 
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByAddress(txtFilter.Text);
+        lstCustomerList.DataSource = Customers.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerID";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "Email";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create instance of the staff collection 
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByAddress(" ");
+        //clear amy exostomg filter to tidy up the interface
+        txtFilter.Text = "";
+        lstCustomerList.DataSource = Customers.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerID";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerID";
+        //bind the data to the list
+        lstCustomerList.DataBind();
     }
 }
