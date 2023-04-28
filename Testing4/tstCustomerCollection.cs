@@ -24,7 +24,7 @@ namespace Testing4
 
             TestItem.Active = true;
             TestItem.CustomerID = 1;
-            TestItem.Address = "some street";
+            TestItem.Address = "some street LE1 1WE";
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "example@gmail.com";
@@ -43,7 +43,7 @@ namespace Testing4
 
             TestCustomer.Active = true;
             TestCustomer.CustomerID = 1;
-            TestCustomer.Address = "some street";
+            TestCustomer.Address = "some street LE1 1WE";
             TestCustomer.ContactNumber = "123456789";
             TestCustomer.DateAdded = DateTime.Now.Date;
             TestCustomer.Email = "example@gmail.com";
@@ -61,7 +61,7 @@ namespace Testing4
             clsCustomer TestItem = new clsCustomer();
 
             TestItem.Active = true;
-            TestItem.Address = "some street";
+            TestItem.Address = "some street LE1 1WE";
             TestItem.CustomerID = 1;
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
@@ -82,7 +82,7 @@ namespace Testing4
 
             TestItem.Active = true;
             TestItem.CustomerID = 1;
-            TestItem.Address = "some street";
+            TestItem.Address = "some street LE1 1WE";
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "example@gmail.com";
@@ -104,7 +104,7 @@ namespace Testing4
             Int32 PrimaryKey = 0;
 
             TestItem.Active = true;
-            TestItem.Address = "some street";
+            TestItem.Address = "some street LE1 1WE";
             TestItem.ContactNumber = "123456789";
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "example@gmail.com";
@@ -115,7 +115,7 @@ namespace Testing4
             TestItem.CustomerID = PrimaryKey;
 
             TestItem.Active = false;
-            TestItem.Address = "update street";
+            TestItem.Address = "update street LE1 1WE";
             TestItem.ContactNumber = "121111111";
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.Email = "update@gmail.com";
@@ -127,5 +127,32 @@ namespace Testing4
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+
+            TestItem.Active = true;
+            TestItem.CustomerID = 1;
+            TestItem.Address = "wilberforce LE1 1WE";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Email = "email@gmail.com";
+            TestItem.ContactNumber = "333333";
+
+            allCustomers.ThisCustomer = TestItem;
+            PrimaryKey = allCustomers.Add();
+            TestItem.CustomerID = PrimaryKey;
+
+            allCustomers.ThisCustomer.Find(PrimaryKey);
+            allCustomers.Delete();
+
+            Boolean Found = allCustomers.ThisCustomer.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+
+        }
+
     }
 }
